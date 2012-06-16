@@ -2,7 +2,7 @@
  * Jakefile
  * SPPredicateEditor
  *
- * Created by You on May 5, 2012.
+ * Created by You on June 16, 2012.
  * Copyright 2012, Your Company All rights reserved.
  */
 
@@ -30,6 +30,7 @@ app ("SPPredicateEditor", function(task)
     task.setResources(new FileList("Resources/**"));
     task.setIndexFilePath("index.html");
     task.setInfoPlistPath("Info.plist");
+    task.setNib2CibFlags("-R Resources/");
 
     if (configuration === "Debug")
         task.setCompilerFlags("-DDEBUG -g");
@@ -85,21 +86,9 @@ task ("run-desktop", ["desktop"], function()
     OS.system([FILE.join("Build", "Desktop", "SPPredicateEditor", "SPPredicateEditor.app", "Contents", "MacOS", "NativeHost"), "-i"]);
 });
 
-task("test", function()
-{
-    var tests = new FileList('Tests/*Test.j');
-    var cmd = ["ojtest"].concat(tests.items());
-    var cmdString = cmd.map(OS.enquote).join(" ");
-
-    var code = OS.system(cmdString);
-    if (code !== 0)
-        OS.exit(code);
-});
-
 function printResults(configuration)
 {
     print("----------------------------");
     print(configuration+" app built at path: "+FILE.join("Build", configuration, "SPPredicateEditor"));
     print("----------------------------");
 }
-
