@@ -1,9 +1,9 @@
-@STATIC;1.0;I;21;Foundation/CPObject.jI;21;AppKit/CPScrollView.jI;27;AppKit/CPSegmentedControl.ji;22;LPMultiLineTextField.jI;26;AppKit/CPPredicateEditor.jt;9808;
+@STATIC;1.0;I;21;Foundation/CPObject.jI;21;AppKit/CPScrollView.jI;27;AppKit/CPSegmentedControl.ji;22;LPMultiLineTextField.jI;37;SPPredicateEditor/SPPredicateEditor.jt;9819;
 objj_executeFile("Foundation/CPObject.j",NO);
 objj_executeFile("AppKit/CPScrollView.j",NO);
 objj_executeFile("AppKit/CPSegmentedControl.j",NO);
 objj_executeFile("LPMultiLineTextField.j",YES);
-objj_executeFile("AppKit/CPPredicateEditor.j",NO);
+objj_executeFile("SPPredicateEditor/SPPredicateEditor.j",NO);
 var _1=objj_allocateClassPair(CPObject,"AppController"),_2=_1.isa;
 class_addIvars(_1,[new objj_ivar("theWindow"),new objj_ivar("scrollView"),new objj_ivar("editor"),new objj_ivar("predicateField"),new objj_ivar("refreshButton"),new objj_ivar("autoRefreshButton"),new objj_ivar("rowHeightField"),new objj_ivar("bgView"),new objj_ivar("appView"),new objj_ivar("_autoRefresh")]);
 objj_registerClassPair(_1);
@@ -126,7 +126,7 @@ objj_msgSend(_2b,"roundtripPredicate");
 }
 }),new objj_method(sel_getUid("compoundRowTemplate"),function(_2e,_2f){
 with(_2e){
-return objj_msgSend(objj_msgSend(CPPredicateEditorRowTemplate,"alloc"),"initWithCompoundTypes:",[1,2,0]);
+return objj_msgSend(objj_msgSend(SPPredicateEditorRowTemplate,"alloc"),"initWithCompoundTypes:",[1,2,0]);
 }
 }),new objj_method(sel_getUid("rowTemplateWithStringEditorAndLeftKeys:options:"),function(_30,_31,_32,_33){
 with(_30){
@@ -138,7 +138,7 @@ var _35=objj_msgSend(CPMutableArray,"array");
 for(var i=0;i<objj_msgSend(_32,"count");i++){
 objj_msgSend(_35,"addObject:",objj_msgSend(CPExpression,"expressionForKeyPath:",objj_msgSend(_32,"objectAtIndex:",i)));
 }
-return objj_msgSend(objj_msgSend(CPPredicateEditorRowTemplate,"alloc"),"initWithLeftExpressions:rightExpressionAttributeType:modifier:operators:options:",_35,CPStringAttributeType,0,_34,_33);
+return objj_msgSend(objj_msgSend(SPPredicateEditorRowTemplate,"alloc"),"initWithLeftExpressions:rightExpressionAttributeType:modifier:operators:options:",_35,CPStringAttributeType,0,_34,_33);
 }
 }),new objj_method(sel_getUid("rowTemplateWithLeftKeys:rightConstants:"),function(_36,_37,_38,_39){
 with(_36){
@@ -154,7 +154,7 @@ var _3c=objj_msgSend(CPMutableArray,"array");
 for(var i=0;i<objj_msgSend(_39,"count");i++){
 objj_msgSend(_3c,"addObject:",objj_msgSend(CPExpression,"expressionForConstantValue:",objj_msgSend(_39,"objectAtIndex:",i)));
 }
-return objj_msgSend(objj_msgSend(CPPredicateEditorRowTemplate,"alloc"),"initWithLeftExpressions:rightExpressions:modifier:operators:options:",_3b,_3c,0,_3a,0);
+return objj_msgSend(objj_msgSend(SPPredicateEditorRowTemplate,"alloc"),"initWithLeftExpressions:rightExpressions:modifier:operators:options:",_3b,_3c,0,_3a,0);
 }
 }),new objj_method(sel_getUid("rowTemplateWithBooleanEditorAndLeftKeys:"),function(_3d,_3e,_3f){
 with(_3d){
@@ -166,7 +166,7 @@ var _41=objj_msgSend(CPMutableArray,"array");
 for(var i=0;i<objj_msgSend(_3f,"count");i++){
 objj_msgSend(_41,"addObject:",objj_msgSend(CPExpression,"expressionForKeyPath:",objj_msgSend(_3f,"objectAtIndex:",i)));
 }
-return objj_msgSend(objj_msgSend(CPPredicateEditorRowTemplate,"alloc"),"initWithLeftExpressions:rightExpressionAttributeType:modifier:operators:options:",_41,CPBooleanAttributeType,0,_40,0);
+return objj_msgSend(objj_msgSend(SPPredicateEditorRowTemplate,"alloc"),"initWithLeftExpressions:rightExpressionAttributeType:modifier:operators:options:",_41,CPBooleanAttributeType,0,_40,0);
 }
 }),new objj_method(sel_getUid("rowTemplateWithFloatEditorAndLeftKeys:"),function(_42,_43,_44){
 with(_42){
@@ -178,7 +178,7 @@ var _46=objj_msgSend(CPMutableArray,"array");
 for(var i=0;i<objj_msgSend(_44,"count");i++){
 objj_msgSend(_46,"addObject:",objj_msgSend(CPExpression,"expressionForKeyPath:",objj_msgSend(_44,"objectAtIndex:",i)));
 }
-return objj_msgSend(objj_msgSend(CPPredicateEditorRowTemplate,"alloc"),"initWithLeftExpressions:rightExpressionAttributeType:modifier:operators:options:",_46,CPDoubleAttributeType,0,_45,0);
+return objj_msgSend(objj_msgSend(SPPredicateEditorRowTemplate,"alloc"),"initWithLeftExpressions:rightExpressionAttributeType:modifier:operators:options:",_46,CPDoubleAttributeType,0,_45,0);
 }
 }),new objj_method(sel_getUid("rowTemplateWithIntegerEditorAndLeftKeys:"),function(_47,_48,_49){
 with(_47){
@@ -190,6 +190,6 @@ var _4b=objj_msgSend(CPMutableArray,"array");
 for(var i=0;i<objj_msgSend(_49,"count");i++){
 objj_msgSend(_4b,"addObject:",objj_msgSend(CPExpression,"expressionForKeyPath:",objj_msgSend(_49,"objectAtIndex:",i)));
 }
-return objj_msgSend(objj_msgSend(CPPredicateEditorRowTemplate,"alloc"),"initWithLeftExpressions:rightExpressionAttributeType:modifier:operators:options:",_4b,CPInteger64AttributeType,0,_4a,0);
+return objj_msgSend(objj_msgSend(SPPredicateEditorRowTemplate,"alloc"),"initWithLeftExpressions:rightExpressionAttributeType:modifier:operators:options:",_4b,CPInteger64AttributeType,0,_4a,0);
 }
 })]);
