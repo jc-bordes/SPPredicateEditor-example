@@ -79,7 +79,7 @@
 	[predicateField setTextColor:[CPColor blackColor]];
 	[predicateField setEditable:NO];
 	
-	[[CPNotificationCenter defaultCenter] addObserver:self selector:@selector(rowsDidChange:) name:CPRuleEditorRowsDidChangeNotification object:editor];
+	[[CPNotificationCenter defaultCenter] addObserver:self selector:@selector(rowsDidChange:) name:SPRuleEditorRowsDidChangeNotification object:editor];
 }
 
 -(void)refreshPredicate
